@@ -1,0 +1,21 @@
+
+<div *ngIf="authService.userData as user;else otherwise">
+        <div class="alreadyConnected">
+                Vous êtes déja connecté, vous déconnecter?
+                <button (click)="authService.SignOut()">disconnect</button>
+        </div>
+       
+</div>
+
+<ng-template #otherwise>
+        <form>
+                <label>Mail :</label>
+                <input type="mail" placeholder="Enter mail" name="mail" #mail required>
+                <label>Password : </label>
+                <input type="password" placeholder="Enter Password" name="password" #password required>
+                <button type="button" (click)="authService.SignIn(mail.value, password.value)">Log in</button>
+
+                <input type="reset" value="Cancel">
+                <a href="#"> Forgot password? </a>
+        </form>
+</ng-template>
