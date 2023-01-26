@@ -9,21 +9,29 @@
        
 </div>
 
+
 <ng-template #otherwise>
-        <div class="inscription">
-                <form>  
-   
-                        
-                        
-                        <label>Mail :</label>   
-                        <input type="mail" placeholder="Enter mail" name="mail" #mail required>  
-                        <label>Password : </label>   
-                        <input type="password" placeholder="Enter Password" name="password" #password required>  
-                        <button type="button" (click)="authService.SignUp(mail.value, password.value)">Sign Up</button>
-                      
-                        <input type="reset" value="Cancel">   
-                 
-                </form> 
+        <div class="container">
+                <article class="grid">
+                        <div class="loginContainer">
+                                <hgroup>
+                                        <h1>Sign Up</h1>
+                                        <h2>Get access to all the services BikeWay provides you</h2>
+                                </hgroup>
+                                <form>
+                                        <label>Mail :</label>
+                                        <input type="mail" placeholder="Enter mail" name="mail" #mail required>
+                                        <label>Password : </label>
+                                        <input type="password" placeholder="Enter Password" name="password" #password required>
+                                        <button type="button" (click)="authService.SignUp(mail.value, password.value)">
+                                                Sign up
+                                        </button>
+        
+                                        <input type="reset" value="Cancel">
+                                        <a href="#"> Forgot password? </a>
+                                </form>
+                        </div>
+                       
+                </article>
         </div>
-       
 </ng-template>

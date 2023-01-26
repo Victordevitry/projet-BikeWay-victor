@@ -1,9 +1,19 @@
-<div class="headerContainer">
-    
-    <a routerLink="/home"><img class="imgLogo" src="https://see.fontimg.com/api/renderfont4/VGmOz/eyJyIjoiZnMiLCJoIjoxNDcsInciOjE1MDAsImZzIjo5OCwiZmdjIjoiIzE0RENDMCIsImJnYyI6IiNGRkZGRkYiLCJ0IjoxfQ/QmlrZVdheQ/beast-head.png" alt="BikeWay"></a>
-   
-    <button routerLink="/signup">Sign Up</button>
-    <button routerLink="/login">Log in</button>
-    <button routerLink="/compte">Compte</button>
+<div class="container-fluid">
 
-</div>  
+<nav>
+    <ul>
+      <li><strong>    <a routerLink="/home"><img class="imgLogo" src="https://see.fontimg.com/api/renderfont4/VGmOz/eyJyIjoiZnMiLCJoIjoxNDcsInciOjE1MDAsImZzIjo5OCwiZmdjIjoiIzE0RENDMCIsImJnYyI6IiNGRkZGRkYiLCJ0IjoxfQ/QmlrZVdheQ/beast-head.png" alt="BikeWay"></a>
+      </strong></li>
+      <li><a routerLink="/routes">Liste d'itinéraires</a></li>
+      <li><a routerLink="/apropos">A propos</a></li>
+    </ul>
+    <ul>
+      <li><a routerLink="/signup">Sign Up</a></li>
+      <li><a routerLink="/login">Log In</a></li>
+      <li><a routerLink="/compte">Account</a></li>
+      
+      <li><a (click)="switchTheme()"><div id="themeButton" [ngClass]="darkTheme ? 'themeButtonLight' : 'themeButtonDark'" ></div></a></li>
+
+    </ul>
+</nav>
+</div>

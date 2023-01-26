@@ -1,1 +1,68 @@
 /* You can add global styles to this file, and also import other style files */
+.mainContainer {
+    min-height: 550px;
+}
+
+
+
+
+/*
+    Light Theme
+  */
+[data-theme="light"],
+:root:not([data-theme="dark"]) {
+    background-color: #AAE3E2 !important ;
+    --primary: black
+    ;
+    --primary-hover: #FDEBED;
+    --primary-focus: #FDEBED;
+    --primary-inverse: #FDEBED;
+
+    --secondary: #FDEBED;
+    --secondary-hover: #D9ACF5;
+    --secondary-focus: #D9ACF5;
+    --secondary-inverse: #D9ACF5;
+    --card-background-color: #FDEBED;
+    
+
+}
+
+/* Dark Theme */
+@media only screen and (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+       
+
+        --primary: #C3F73A;
+        --primary-hover: #68B684;
+        --primary-focus: #68B684;
+        --primary-inverse: #68B684;
+
+        --secondary: #95E06C;
+        --secondary-hover: #C3F73A;
+        --secondary-focus: #C3F73A;
+        --secondary-inverse: #C3F73A;
+    }
+}
+
+[data-theme="dark"] {
+        background-color: #03001C ;
+        --primary: #5B8FB9;
+        --primary-hover: #B6EADA;
+        --primary-focus: #B6EADA;
+        --primary-inverse: #B6EADA;
+
+        --secondary: #B6EADA;
+        --secondary-hover: #5B8FB9;
+        --secondary-focus: #5B8FB9;
+        --secondary-inverse: #5B8FB9;
+
+        --card-background-color: #301E67;
+
+}
+
+:root {
+    --form-element-active-border-color: var(--primary);
+    --form-element-focus-color: var(--primary-focus);
+    --switch-color: var(--primary-inverse);
+    --switch-checked-background-color: var(--primary);
+}

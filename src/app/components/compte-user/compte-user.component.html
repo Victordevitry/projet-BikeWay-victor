@@ -1,27 +1,38 @@
 <div class="compteContainer">
-    
-    <div class="row" *ngIf="authService.userData as user;else otherwise">
-      <div class="compteTitle">
-        Mon compte
+  <div class="row" *ngIf="authService.userData as user;else otherwise">
+    <div class="compteTitle">
+      Mon compte
     </div>
-        <div class="col-md-12">
-          <div class="media">
-            <img class="align-self-start mr-5 img-thumbnail rounded-circle" src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}"
-              alt="{{user.displayName}}">
-            <div class="media-body">
-              <h1>Hello: <strong>{{(user.displayName) ? user.displayName : 'User'}}</strong></h1>
-              <p>User ID: <strong>{{user.uid}}</strong></p>
-              <p>Email: <strong>{{user.email}}</strong></p>
-              <p>Email Verified: <strong>{{user.emailVerified}}</strong></p>
-              <button (click)="authService.SignOut()">disconnect</button>
+    <div class="col-md-12">
+      <div class="media">
+        <img class="align-self-start mr-5 img-thumbnail rounded-circle"
+          src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}" alt="{{user.displayName}}">
+        <div class="media-body">
+          <h1>Hello: <strong>{{(user.displayName) ? user.displayName : 'User'}}</strong></h1>
+          <p>User ID: <strong>{{user.uid}}</strong></p>
+          <p>Email: <strong>{{user.email}}</strong></p>
+          <p>Email Verified: <strong>{{user.emailVerified}}</strong></p>
+          <button (click)="authService.SignOut()">disconnect</button>
 
-            </div>
-          </div>
         </div>
-      </div> 
-      <ng-template  #otherwise>
-       <div class="connectionRequired">
-        Veuillez vous connecter
+      </div>
     </div>
-  </ng-template> 
+  </div>
+  <ng-template #otherwise>
+    <div class="container not-found">
+      <article>
+        <div>
+          <hgroup>
+            <h1 > 
+              Veuillez vous connecter pour accéder à votre compte
+            </h1>
+          </hgroup>
+        </div>
+        <div>
+          <img src="https://img.icons8.com/glyph-neue/64/null/user-not-found.png" />
+        </div>
+      </article>
+    </div>
+
+  </ng-template>
 </div>

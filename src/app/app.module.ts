@@ -11,6 +11,7 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { CommonModule } from '@angular/common';
+import { GoogleMapsModule } from '@angular/google-maps'
 
 
 import { HomeComponent } from './components/home/home.component';
@@ -20,12 +21,17 @@ import { SignupComponent } from './components/signup/signup.component';
 import { AuthService } from './service/user.service';
 import { CompteUserComponent } from './components/compte-user/compte-user.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { MapComponent } from './components/map/map.component';
+import { PageListeComponent } from './page-liste/page-liste.component';
+import { AProposComponent } from './a-propos/a-propos.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'compte', component: CompteUserComponent },
+  { path: 'routes', component: PageListeComponent },
+  { path: 'apropos', component: AProposComponent },
   { path: '**', component:HomeComponent}
 
 ];
@@ -54,12 +60,17 @@ export const environment = {
     CompteUserComponent,
     ContactComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    MapComponent,
+    PageListeComponent,
+    AProposComponent,
+    
   ],
   imports: [
     ReactiveFormsModule,
     BrowserModule,
     BrowserAnimationsModule,    
+    GoogleMapsModule,
     RouterModule.forRoot(
       appRoutes,
     ),
