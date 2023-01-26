@@ -9,6 +9,8 @@ import { AuthService } from 'src/app/service/user.service';
 export class HeaderComponent implements OnInit {
   @ViewChild('themeButton') themeButton:ElementRef; 
   darkTheme:boolean = false;
+  photoName:String = "logo-white-transparent.png";
+
 
   constructor(
     public authService: AuthService,
@@ -26,9 +28,13 @@ export class HeaderComponent implements OnInit {
       if(parentElement.getAttribute("data-theme")=="dark"){
         parentElement.setAttribute("data-theme","light");
         this.darkTheme=true;
+        this.photoName="logo-no-background.png";
       }else{
         parentElement.setAttribute("data-theme","dark");
         this.darkTheme=false;
+        this.photoName="logo-white-transparent.png";
+
+
 
       }
      

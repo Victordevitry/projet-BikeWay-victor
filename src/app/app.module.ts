@@ -22,8 +22,8 @@ import { AuthService } from './service/user.service';
 import { CompteUserComponent } from './components/compte-user/compte-user.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { MapComponent } from './components/map/map.component';
-import { PageListeComponent } from './page-liste/page-liste.component';
-import { AProposComponent } from './a-propos/a-propos.component';
+import { PageListeComponent } from './components/page-liste/page-liste.component';
+import { AProposComponent } from './components/a-propos/a-propos.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },

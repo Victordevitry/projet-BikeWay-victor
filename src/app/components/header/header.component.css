@@ -4,8 +4,8 @@
 }
 
 .imgLogo{
-    width: 150px;
-    
+  width: 200px;
+
 }
 
 .themeButtonLight{
@@ -18,9 +18,8 @@
   }
 
   
-
   .themeButtonDark{
-    background:url("https://img.icons8.com/parakeet/30/null/sun.png");
+    background:url("https://img.icons8.com/cotton/30/null/sun--v1.png");
     width:30px;
     height:30px;
     vertical-align: middle;

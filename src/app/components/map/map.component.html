@@ -1,8 +1,26 @@
-<google-map
-height="500px"
-width="100%"
-[zoom]=12
-></google-map>   
+<div>
+    <div class="routesSearchField container">
+            <div>
+                <p>Enter address</p>
+                <input type="text" placeholder="Paris" 
+                    #departure />
+            </div>
+            <p>
+                <input type="checkbox" id="switch" name="switch" role="switch" (click)="getPosition()">
+                Utiliser ma position
+            </p>
+            <div class="container">
+               <p>Adresse d'arrivé</p>
+                <input #arrival (keydown.enter)="$event.preventDefault()" placeholder="Orléans" type="text" />
+            </div>
+    </div>
+    <div class="container">
+        <google-map height="100%" width="100%" [zoom]=12>
+  
+        </google-map> 
+  
+    </div>
+</div>
 <!--
 <map-marker #marker="mapMarker"
               *ngFor="let markerPosition of markerPositions"
