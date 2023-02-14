@@ -1,29 +1,71 @@
-<div>
-    <div class="routesSearchField container">
-            <div>
-                <p>Enter address</p>
-                <input type="text" placeholder="Paris" 
-                    #departure />
-            </div>
-            <p>
-                <input type="checkbox" id="switch" name="switch" role="switch" (click)="getPosition()">
-                Utiliser ma position
-            </p>
-            <div class="container">
-               <p>Adresse d'arrivé</p>
-                <input #arrival (keydown.enter)="$event.preventDefault()" placeholder="Orléans" type="text" />
-            </div>
-    </div>
-    <div class="container">
-        <google-map height="100%" width="100%" [zoom]=12>
-  
-        </google-map> 
-  
-    </div>
+<div class="container">
+
+        <div class="container-fluid">
+                <div class="routesSearchField grid">
+                        <div class="container-fluid inp">
+                                <p>Adresse de départ</p>
+
+                                <input type="text" placeholder="Paris" #departure [value]="departValue" />
+                                <p>Utiliser ma position <input class="searchInput" type="checkbox" id="switch"
+                                                name="switch" role="switch" (click)="getPosition()"></p>
+                        </div>
+                        <div class="container-fluid inp">
+                                <p>Adresse d'arrivé</p>
+                                <input #arrival [value]="arrivalValue" (keydown.enter)="$event.preventDefault()" placeholder="Orléans"
+                                        type="text" />
+                        </div>
+                        <div class="grid inline">
+                               
+                                     
+                                        <a class="iconsSearch" (click)="traceRoute()"><img
+                                                        src="https://img.icons8.com/color/48/null/cycling-road--v1.png" /></a>
+
+
+                               
+                               
+                                      
+                                        <a class="iconsSearch" (click)="addRouteFavorites()">
+                                                <div *ngIf="addedRoute else otherwise;">
+                                                        <img
+                                                                src="https://img.icons8.com/color/48/null/filled-star--v1.png" />
+                                                </div>
+                                                <ng-template #otherwise>
+                                                        <img src="https://img.icons8.com/color/48/null/star--v1.png" />
+                                                </ng-template>
+                                        </a>
+
+
+                                
+                                        
+
+                                        <a class="iconsSearch" (click)="getNearbyRentalBikes()"><img
+                                                        src="https://img.icons8.com/external-filled-color-icons-papa-vector/78/null/external-Bicycle-Sharing-System-car-sharing-filled-color-icons-papa-vector.png" /></a>
+
+
+                                
+                        </div>
+
+
+                </div>
+
+        </div>
+        <div class="container map">
+                <div id="map"></div>
+        </div>
+
+
 </div>
-<!--
-<map-marker #marker="mapMarker"
-              *ngFor="let markerPosition of markerPositions"
-              [position]="markerPosition"
-              (mapClick)="openInfoWindow(marker)"></map-marker>
-              -->
+<div *ngIf="showModalBox">
+        <dialog open>
+                <article>
+                        <main>
+                                <p> L'itinéraire a bien été sauvegardé dans vos favoris</p>
+                                <div class="container validation">
+                                        <a class="pointer"><img
+                                                        src="https://img.icons8.com/external-tal-revivo-color-tal-revivo/35/null/external-checkbox-tick-mark-accept-your-checklist-queries-basic-color-tal-revivo.png" /></a>
+
+                                </div>
+                        </main>
+                </article>
+        </dialog>
+</div>

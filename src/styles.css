@@ -11,7 +11,7 @@
 [data-theme="light"],
 :root:not([data-theme="dark"]) {
     background-color: #F9F7F7 ;
-    --primary: #3F72AF;
+    --primary: #5B8FB9;
     
     --color: black !important;
     
@@ -45,4 +45,5 @@
     --form-element-focus-color: var(--primary-focus);
     --switch-color: var(--primary-inverse);
     --switch-checked-background-color: var(--primary);
+    --font-size: 15px;
 }

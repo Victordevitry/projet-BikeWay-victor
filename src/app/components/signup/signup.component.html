@@ -2,9 +2,14 @@
 
 
 <div *ngIf="authService.userData as user;else otherwise">
-        <div class="alreadyConnected">
-                Vous êtes déja connecté, vous déconnecter?
-                <button (click)="authService.SignOut()">disconnect</button>
+        <div class="container not-found">
+                <article>
+                  <div>
+                    <h4>
+                        Vous êtes déja connecté, vous déconnecter?
+                        <a (click)="authService.SignOut()">déconnection</a>                    </h4>
+                  </div>
+                </article>
         </div>
        
 </div>
@@ -12,26 +17,46 @@
 
 <ng-template #otherwise>
         <div class="container">
-                <article class="grid">
+                <article class="grid customedArticle">
                         <div class="loginContainer">
-                                <hgroup>
-                                        <h1>Sign Up</h1>
-                                        <h2>Get access to all the services BikeWay provides you</h2>
-                                </hgroup>
-                                <form>
-                                        <label>Mail :</label>
+                              
+                                        <h1>Inscription</h1>
+                                        <h5>Accedez à tous les services de BikeWay</h5>
+                               
+                                        <p>Mail :</p>
                                         <input type="mail" placeholder="Enter mail" name="mail" #mail required>
-                                        <label>Password : </label>
+                                        <p>Mot de passe : </p>
                                         <input type="password" placeholder="Enter Password" name="password" #password required>
-                                        <button type="button" (click)="authService.SignUp(mail.value, password.value)">
-                                                Sign up
+                                        <div class="container" >
+                                                <input type="checkbox" id="terms" name="terms" required>
+                                                <a href="https://cdn.axway.com/u/Axway_General_Conditions_version_april_2014_eng%20(France).pdf">Accepter les CGU</a>  
+                                        </div>
+
+                                      <div class="grid">
+                                        <button class="signUpInput" type="button" (click)="customSignUp(mail.value, password.value)">
+                                                S'inscrire
                                         </button>
-        
-                                        <input type="reset" value="Cancel">
-                                        <a href="#"> Forgot password? </a>
-                                </form>
+                                       
+
+                                        <input class="signUpInput" type="reset" value="Annuler">
+                                      </div>
+                                       
+                                        <a href="#"> Mot de passe oublié? </a>
                         </div>
                        
                 </article>
         </div>
 </ng-template>
+<div *ngIf="showModalBox">
+        <dialog #createdAccountDialog open>
+                <article>
+                  <main>
+                         <p> Votre compte a bien été créé</p>
+                         <div class="container validation">
+                          <a class="pointer" (click)="createdAccountDialog.close()"><img src="https://img.icons8.com/external-tal-revivo-color-tal-revivo/35/null/external-checkbox-tick-mark-accept-your-checklist-queries-basic-color-tal-revivo.png"/></a>
+        
+                         </div>
+                  </main>
+                </article>
+          </dialog>
+</div>

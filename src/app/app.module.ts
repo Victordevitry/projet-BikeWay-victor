@@ -12,6 +12,8 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { CommonModule } from '@angular/common';
 import { GoogleMapsModule } from '@angular/google-maps'
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 import { HomeComponent } from './components/home/home.component';
@@ -32,7 +34,10 @@ const appRoutes: Routes = [
   { path: 'compte', component: CompteUserComponent },
   { path: 'routes', component: PageListeComponent },
   { path: 'apropos', component: AProposComponent },
-  { path: '**', component:HomeComponent}
+  { path: 'contact', component: ContactComponent },
+
+  { path: '**', component:HomeComponent},
+
 
 ];
 
@@ -71,6 +76,7 @@ export const environment = {
     BrowserModule,
     BrowserAnimationsModule,    
     GoogleMapsModule,
+    HttpClientModule,
     RouterModule.forRoot(
       appRoutes,
     ),

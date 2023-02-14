@@ -1,0 +1,9 @@
+
+{
+    "/echo": {
+    "target": "https://velib-metropole-opendata.smoove.pro/opendata",
+    "secure": true,
+    "changeOrigin": true
+    
+    }
+    }

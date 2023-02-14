@@ -1,35 +1,64 @@
-<div class="container">
+<div class="container autom">
   <div class="row" *ngIf="authService.userData as user;else otherwise">
-    <div class="compteTitle">
-      Mon compte
-    </div>
-    <div class="col-md-12">
-      <div class="media">
-        <img class="align-self-start mr-5 img-thumbnail rounded-circle"
-          src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}" alt="{{user.displayName}}">
-        <div class="media-body">
-          <h1>Hello: <strong>{{(user.displayName) ? user.displayName : 'User'}}</strong></h1>
-          <p>User ID: <strong>{{user.uid}}</strong></p>
-          <p>Email: <strong>{{user.email}}</strong></p>
-          <p>Email Verified: <strong>{{user.emailVerified}}</strong></p>
-          <button (click)="authService.SignOut()">disconnect</button>
+    <div class="test">
+      <article class="centerLink">
+        <header>
+          <h2>
+            Bonjour,<div class="nomEmail bold col"> {{user.email}}</div>
+          </h2>
+        </header>
+
+        <p class="grey">Il n'y pas d'actualités sur votre compte</p>
+        <a class="" (click)="authService.SignOut()">Déconnection</a>
+      </article>
+      <article class="inline artic">
+        <header>
+          <h2>Vos Voyages</h2>
+        </header>
+        <div *ngFor="let route of routes">
+
+        <p class="inline">{{route.count}}</p>  
+          <p class="inline bold grey">
+            de
+          </p>
+          <p class="inline bold yellow">{{route.nomDepart}}</p>
+          <p class="inline bold grey">
+            à
+          </p>
+          <p class="inline bold green">{{route.nomArrive}} </p>
+
+          <p class="inline bold "> ({{route.addedAt}})</p>
+          
+          <div class="marg inline">
+            <a class=" bold deleteIcon" (click)="removeRoute(route.id)"><img
+                src="https://img.icons8.com/ultraviolet/35/null/waste.png" /></a>
+          </div>
+          <div class="marg inline">
+            <a class=" bold deleteIcon" (click)="goToRoute(route)"><img src="https://img.icons8.com/color/35/null/google-maps-new.png"/></a>
+          </div>
+
+          <br>
+          <div class="inline separator"></div>
+          <br>
 
         </div>
-      </div>
+      </article>
     </div>
   </div>
   <ng-template #otherwise>
-    <div class="container not-found">
-      <article>
+    <div class="container not-found ">
+      <article class="articled">
         <div>
-          <hgroup>
-            <h1> 
-              Veuillez vous connecter pour accéder à votre compte
-            </h1>
-          </hgroup>
+          <h4>
+            Veuillez vous connecter<img src="https://img.icons8.com/glyph-neue/50/null/user-not-found.png" />
+          </h4>
+        </div>
+
+        <div>
+
         </div>
         <div>
-          <img src="https://img.icons8.com/glyph-neue/64/null/user-not-found.png" />
+          <a routerLink="/login" role="button"> Connection</a>
         </div>
       </article>
     </div>

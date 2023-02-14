@@ -5,14 +5,11 @@
       <li><strong> <a routerLink="/home"><img class="imgLogo" src='{{ "assets/images/" + photoName }}' />
  </a>
 </strong></li>
-<li><a routerLink="/routes">Liste d'itinéraires</a></li>
 <li><a routerLink="/apropos">A propos</a></li>
 </ul>
 <ul>
-  <li><a routerLink="/signup">Sign Up</a></li>
-  <li><a routerLink="/login">Log In</a></li>
-  <li><a routerLink="/compte">Account</a></li>
-
+  <li><a routerLink="/signup">Inscription</a></li>
+  <li><a routerLink="/compte">Compte</a></li>
   <li><a (click)="switchTheme()">
       <div id="themeButton" [ngClass]="darkTheme ? 'themeButtonLight' : 'themeButtonDark'"></div>
     </a></li>
